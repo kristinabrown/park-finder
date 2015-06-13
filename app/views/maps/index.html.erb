@@ -1,3 +1,9 @@
-<script>
-L.mapbox.accessToken = <%= ENV['MAP_BOX_KEY'] %>;
-</script>
+
+
+<%= content_tag "div", id: "map-data", data: { token: ENV['MAP_BOX_KEY']} do %>
+<% end %>
+
+<div id='map'>
+
+</div>
+
