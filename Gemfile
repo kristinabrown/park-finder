@@ -38,11 +38,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'pry'
-  gem 'vcr'
-  gem 'simplecov'
 end
 
 group :test do
+  gem 'pry'
+  gem 'vcr'
+  gem 'simplecov'
 end
 
