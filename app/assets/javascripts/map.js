@@ -21,10 +21,17 @@ $(document).ready(function() {
           map.locate();
       };
   }
-
   // Once we've got a position, zoom and center the map
   // on it, and add a single marker.
   map.on('locationfound', function(e) {
+
+    $.post("/parks", { lat: geolocate.latitude, long: geolocate.longitude }).then(function(parks){
+      $parks.empty();
+      $parks.append(tweets.map(function(park) {
+        return $("<div class='row'> <div class='col s3'> <h4>" + park.name
+        + "</div> </div> </h4>");
+      }));
+    });
       map.fitBounds(e.bounds);
 
       myLayer.setGeoJSON({

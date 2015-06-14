@@ -25,6 +25,7 @@ gem 'figaro'
 gem 'yelp', require: 'yelp'
 gem 'skylight'
 gem 'materialize-sass'
+gem 'responders'
 
 group :production do  
   gem 'rails_12factor'  
