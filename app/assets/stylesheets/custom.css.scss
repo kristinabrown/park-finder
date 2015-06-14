@@ -39,7 +39,8 @@ body{
   font-weight: bolder;
 }
 
-#main-button {
+#geolocate {
+  
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
   margin-top: 220px;
@@ -47,4 +48,5 @@ body{
   // border: 3px solid white;
   margin-left: 45px;
   background-color: white;
+  position: absolute;
 }
