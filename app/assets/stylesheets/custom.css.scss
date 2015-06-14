@@ -1,3 +1,50 @@
 body{
-  height: 100%;
+  // background-image: url(image_path('park.jpg'));
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // width: 100%;
+  // height: 100%;
+
+}
+
+.parallax-container {
+  // height: 200px;
+}
+
+.nav {
+  background-color: rgb(56, 115, 176)
+}
+
+.brand-logo {
+  // font-family: 'Indie Flower', cursive;
+  font-family: 'Shadows Into Light', cursive;
+  margin-left: 20px;
+}
+
+#map { 
+  position:absolute; 
+  margin-top: 60px;
+  // margin-left: 50px;
+  top:0;
+  bottom:0; 
+  width:100%; 
+  }
+
+#main-header {
+  // font-family: 'Shadows Into Light', cursive;
+  font-family: 'Indie Flower', cursive;
+  margin-top: 230px;
+  color: rgb(205, 43, 184);
+  font-size: 5em;
+  font-weight: bolder;
+}
+
+#main-button {
+  // font-family: 'Indie Flower', cursive;
+  // font-family: 'Shadows Into Light', cursive;
+  margin-top: 220px;
+  font-size: 2em;
+  // border: 3px solid white;
+  margin-left: 45px;
+  background-color: white;
 }

@@ -24,7 +24,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'yelp', require: 'yelp'
 gem 'skylight'
+gem 'materialize-sass'
 
+group :production do  
+  gem 'rails_12factor'  
+end 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
