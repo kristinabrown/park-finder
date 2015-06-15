@@ -1,15 +1,26 @@
-/* line 14, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 10, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+#parks {
+  margin-top: 350px;
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+}
+
+/* line 21, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 .nav {
-  background-color: #3873b0;
+  background-color: white;
 }
 
-/* line 18, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
-.brand-logo {
-  font-family: 'Shadows Into Light', cursive;
+/* line 25, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+#brand-logo {
   margin-left: 20px;
+  background-color: #2768b5;
+  padding: 8px;
+  margin-bottom: 5px;
+  font-size: 2em;
 }
 
-/* line 24, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 35, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #map {
   position: absolute;
   margin-top: 60px;
@@ -18,7 +29,7 @@
   width: 100%;
 }
 
-/* line 33, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 44, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #main-header {
   font-family: 'Indie Flower', cursive;
   margin-top: 230px;
@@ -27,12 +38,22 @@
   font-weight: bolder;
 }
 
-/* line 42, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 53, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+#geolocate {
+  margin-top: 55px;
+  font-size: 1.3em;
+  margin-left: 45px;
+  background-color: white;
+  position: absolute;
+}
+
+/* line 65, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #main-button {
   margin-top: 220px;
   font-size: 2em;
   margin-left: 45px;
   background-color: white;
+  position: absolute;
 }
 /*!
  * Materialize v0.96.1 (http://materializecss.com)

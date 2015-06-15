@@ -45,11 +45,17 @@ $(document).ready(function() {
   // Once we've got a position, zoom and center the map
   // on it, and add a single marker.
   
-  
+    $("#geolocate").click(function(){
+      $("#spinner").toggleClass("hidden");  
+    })
 
   map.on('locationfound', function(e) {
+    // var $loadingWheel = $("#spinning-wheel")
+    // $("#spinning-wheel").show();
+    
     $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
       // var geojson = $.parseJSON(parks);
+    $("#spinner").toggleClass("hidden");
       var myParks = [];
       parks.map(function(park) {
         myParks.push({
@@ -85,6 +91,8 @@ $(document).ready(function() {
       }
   });
   geolocate.parentNode.removeChild(geolocate);
+  // $("#spinning-wheel").hide();
+  
   });
   
   
