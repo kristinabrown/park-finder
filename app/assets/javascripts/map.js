@@ -50,6 +50,7 @@ $(document).ready(function() {
     })
 
   map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
     // var $loadingWheel = $("#spinning-wheel")
     // $("#spinning-wheel").show();
     
@@ -74,6 +75,7 @@ $(document).ready(function() {
       });
         //  return $("<h1>" + park.table.name + "</h1>");
    });
+      // map.fitBounds(featureLayer.getBounds());
       map.featureLayer.setGeoJSON(myParks);
     //     addEventPopups(map);
      });
@@ -91,12 +93,12 @@ $(document).ready(function() {
       }
   });
   geolocate.parentNode.removeChild(geolocate);
+  debugger;
   // $("#spinning-wheel").hide();
   
   });
   
   
-  map.fitBounds(featureLayer.getBounds());
 
   // If the user chooses not to allow their location
   // to be shared, display an error message.
