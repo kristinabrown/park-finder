@@ -7,18 +7,27 @@ body{
 
 }
 
-.parallax-container {
-  // height: 200px;
+#parks{
+  margin-top: 300px;
+  position: absolute;
+}
+
+.parallax {
+  //  height: 800px;
 }
 
 .nav {
-  background-color: rgb(56, 115, 176)
+  background-color: white;
 }
 
-.brand-logo {
+#brand-logo {
   // font-family: 'Indie Flower', cursive;
-  font-family: 'Shadows Into Light', cursive;
+  // font-family: 'Shadows Into Light', cursive;
   margin-left: 20px;
+  background-color: rgb(39, 104, 181);
+  padding: 8px;
+  margin-bottom: 5px;
+  font-size: 2em;
 }
 
 #map { 
@@ -40,6 +49,18 @@ body{
 }
 
 #geolocate {
+  
+  // font-family: 'Indie Flower', cursive;
+  // font-family: 'Shadows Into Light', cursive;
+  margin-top: 55px;
+  font-size: 1.3em;
+  // border: 3px solid white;
+  margin-left: 45px;
+  background-color: white;
+  position: absolute;
+}
+
+#main-button {
   
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
