@@ -8,14 +8,26 @@ body{
 }
 
 #spinner {
-  margin-top: 300px;
+  // position: absolute;
+  // margin-bottom: 200px;
+  margin-top: 250px;
+  margin-left: 88px;
 }
 
 #parks{
-  margin-top: 350px;
-  position: absolute;
-   z-index: 100;
-  background-color: white;
+  // overflow-y:scroll; 
+  // overflow-x:hidden;
+  //  height:600px;
+  // margin-top: 350px;
+  // position: absolute;
+  //  z-index: 100;
+  // background-color: white;
+}
+
+.parks {
+  overflow-y:scroll; 
+  overflow-x:hidden;
+  height:600px;
 }
 
 #search {
@@ -46,6 +58,16 @@ body{
   font-size: 2em;
 }
 
+.small-map {
+  position:absolute; 
+  margin-top: 60px;
+  // margin-left: 50px;
+  top:0;
+  bottom:0; 
+  width:75%;
+  margin-left: 25%;
+}
+
 #map { 
   position:absolute; 
   margin-top: 60px;
@@ -53,7 +75,8 @@ body{
   top:0;
   bottom:0; 
   width:100%; 
-  }
+}
+
 
 #main-header {
   // font-family: 'Shadows Into Light', cursive;
@@ -69,7 +92,7 @@ body{
   
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
-  margin-top: 95px;
+  margin-top: 105px;
   font-size: 1.2em;
   // border: 3px solid white;
   margin-left: 9px;
