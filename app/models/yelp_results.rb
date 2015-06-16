@@ -2,7 +2,7 @@ class YelpResults
   
   def self.parks(lat, lon)
     results = YelpService.search(lat, lon)
-    count = 0
+    count = -1
     results.map do |result|
       park = Park.new
       park.name = result.name

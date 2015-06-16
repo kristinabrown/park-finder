@@ -53,15 +53,14 @@ geocoderControl.addTo(map);
           "title": park.table.name,
           "description": park.table.address,
           "marker-color": "#47ABED",
-          "marker-size": "large",
-          "marker-symbol": "star",
-          "className": park.table.name
+          "marker-size": "medium",
+          "marker-symbol": "star"
         }
       });
       
       $parksDiv.empty();
       $parksDiv.append(parks.map(function(park){
-        return $("<div class='row'> <div class='col s2 m3'>" +
+        return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
@@ -76,7 +75,29 @@ geocoderControl.addTo(map);
     $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
-     });
+      
+    $(".park-row").mouseenter(function(){
+      var all = $(this).text();
+      var index = all.slice(0, 2).trim();
+      var park = myParks[index]
+      park.properties['marker-color'] = "#FFFF00";
+      park.properties['marker-size']  = 'large';
+      map.featureLayer.setGeoJSON(myParks);
+    });
+    
+    $(".park-row").mouseleave(function(){
+      var all = $(this).text();
+      var index = all.slice(0, 2).trim();
+      var park = myParks[index]
+      park.properties['marker-color'] = "#47ABED";
+      park.properties['marker-size']  = 'medium';
+      map.featureLayer.setGeoJSON(myParks);
+    });
+  
+    //   function changMarker(index) {
+    //   alert( "clicked" );
+    // }
+});
 
   myLayer.setGeoJSON({
       type: 'Feature',
@@ -123,17 +144,14 @@ geocoderControl.addTo(map);
           "title": park.table.name,
           "description": park.table.address,
           "marker-color": "#47ABED",
-          "marker-size": "large",
-          "marker-symbol": "star",
-          "icon": {
-              "className": park.table.id
-            }
+          "marker-size": "medium",
+          "marker-symbol": "star"
         }
       });
       
       $parksDiv.empty();
       $parksDiv.append(parks.map(function(park){
-        return $("<div class='row'> <div class='col s2 m3'>" +
+        return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
@@ -147,6 +165,25 @@ geocoderControl.addTo(map);
      $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
+      
+      $(".park-row").mouseenter(function(){
+        var all = $(this).text();
+        var index = all.slice(0, 2).trim();
+        var park = myParks[index]
+        park.properties['marker-color'] = "#FFFF00";
+        park.properties['marker-size']  = 'large';
+        map.featureLayer.setGeoJSON(myParks);
+      });
+      
+      $(".park-row").mouseleave(function(){
+        var all = $(this).text();
+        var index = all.slice(0, 2).trim();
+        var park = myParks[index]
+        park.properties['marker-color'] = "#47ABED";
+        park.properties['marker-size']  = 'medium';
+        map.featureLayer.setGeoJSON(myParks);
+      });
+    
      });
 
     myLayer.setGeoJSON({
