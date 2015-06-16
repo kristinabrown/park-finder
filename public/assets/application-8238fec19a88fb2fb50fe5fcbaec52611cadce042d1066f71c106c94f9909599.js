@@ -16940,12 +16940,14 @@ $(document).ready(function() {
   
   var geolocate = document.getElementById('geolocate');
   
-  // var map = L.mapbox.map('map', 'kristinabrown.241388a6', { zoomControl: false })
-  // .setView([39.739, -104.990], 12);
-  // 
   
   var map = L.mapbox.map('map', 'kristinabrown.241388a6');
   map.setView([39.750081, -104.999703], 13);
+  
+  var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
+geocoderControl.addTo(map);
+  
+
   
   var myLayer = L.mapbox.featureLayer().addTo(map);
   
@@ -16960,23 +16962,7 @@ $(document).ready(function() {
   }
   
   var $parksDiv = $("#parks");
-  // map.featureLayer.on('ready', function(e) {
-  //   getEvents(map);
-  //   
-  //   $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
-      // $parksDiv.empty();
-      //     $parksDiv.append(parks.map(function(park) {
-      //       return $("<h1>" + park.table.name + "</h1>");
-      //     }));
-        // var geojson = $.parseJSON(parks);
-//         debugger;
-//         map.featureLayer.setGeoJSON({
-//             type: "FeatureCollection",
-//             features: geojson
-//           });
-//           addEventPopups(map);
-//     });
-// });
+
   // Once we've got a position, zoom and center the map
   // on it, and add a single marker.
   
@@ -16985,10 +16971,6 @@ $(document).ready(function() {
     })
 
   map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
-    // var $loadingWheel = $("#spinning-wheel")
-    // $("#spinning-wheel").show();
-    
     $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
       // var geojson = $.parseJSON(parks);
     $("#spinner").toggleClass("hidden");
@@ -17010,9 +16992,9 @@ $(document).ready(function() {
       });
         //  return $("<h1>" + park.table.name + "</h1>");
    });
-      // map.fitBounds(featureLayer.getBounds());
-      map.featureLayer.setGeoJSON(myParks);
-    //     addEventPopups(map);
+
+      var parkLayer = map.featureLayer.setGeoJSON(myParks);
+      map.fitBounds(parkLayer.getBounds());
      });
 
   myLayer.setGeoJSON({
@@ -17028,17 +17010,61 @@ $(document).ready(function() {
       }
   });
   geolocate.parentNode.removeChild(geolocate);
-  debugger;
-  // $("#spinning-wheel").hide();
   
   });
-  
   
 
   // If the user chooses not to allow their location
   // to be shared, display an error message.
   map.on('locationerror', function() {
       geolocate.innerHTML = 'Position could not be found';
+  });
+  
+  
+  geocoderControl.on('found', function(res) {
+    $("#spinner").toggleClass("hidden");
+    
+    var lon = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[0]
+    var lat = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[1]
+
+    $.post("/parks", { lat: lat, long: lon }).then(function(parks){
+      // var geojson = $.parseJSON(parks);
+    $("#spinner").toggleClass("hidden");
+      var myParks = [];
+      parks.map(function(park) {
+        myParks.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [park.table.longitude,park.table.latitude]
+        },
+        properties: {
+          "title": park.table.name,
+          "description": park.table.address,
+          "marker-color": "#47ABED",
+          "marker-size": "large",
+          "marker-symbol": "star"
+        }
+      });
+        //  return $("<h1>" + park.table.name + "</h1>");
+   });
+
+      var parkLayer = map.featureLayer.setGeoJSON(myParks);
+      map.fitBounds(parkLayer.getBounds());
+     });
+
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [lon, lat]
+        },
+        properties: {
+            'title': 'You Are Here!',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
+    });
   });
       
 });

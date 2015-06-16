@@ -1,31 +1,38 @@
 <%= content_tag "div", id: "map-data", data: { token: ENV['MAP_BOX_KEY']} do %>
 <% end %>
-<div class="row">
-  <div id="parks">
+
+  <div class= "" id="parks">
+
   </div>
 
-</div>
 
-<div id='map'>
-</div>
 
-<button class="waves-effect waves-light" id="geolocate">Near Me</button>
+
+<div class="" id='map'>
+  <button class="waves-effect waves-light" id="geolocate">Near Me</button>
+</div>
 
 <div class="row hidden spinner" id="spinner">
   <div class="col s3 offset-s5">
+    
     <div class="preloader-wrapper big active">
-      <div class="spinner-layer spinner-blue-only">
+      <div class="spinner-layer spinner-red-only">
+        
         <div class="circle-clipper left">
           <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
+        </div>
+        
+        <div class="gap-patch">
           <div class="circle"></div>
         </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+        
       </div>
     </div>
+    
   </div>  
 </div>
-
 
 

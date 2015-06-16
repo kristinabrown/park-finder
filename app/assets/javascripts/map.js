@@ -7,7 +7,7 @@ $(document).ready(function() {
   
   
   var map = L.mapbox.map('map', 'kristinabrown.241388a6');
-  map.setView([39.750081, -104.999703], 13);
+  // map.setView([39.750081, -104.999703], 13);
   
   var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
 geocoderControl.addTo(map);
@@ -34,11 +34,13 @@ geocoderControl.addTo(map);
     $("#geolocate").click(function(){
       $("#spinner").toggleClass("hidden");  
     })
+    
 
   map.on('locationfound', function(e) {
     $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
-      // var geojson = $.parseJSON(parks);
+    
     $("#spinner").toggleClass("hidden");
+    
       var myParks = [];
       parks.map(function(park) {
         myParks.push({
@@ -55,9 +57,22 @@ geocoderControl.addTo(map);
           "marker-symbol": "star"
         }
       });
-        //  return $("<h1>" + park.table.name + "</h1>");
-   });
+      
+      $parksDiv.empty();
+      $parksDiv.append(parks.map(function(park){
+        return $("<div class='row'> <div class='col s2 m3'>" +
+                  "<div class='card blue darken-2'>" +
+                  "<div class='card-content white-text'>" + 
+                  "<span class='card-title center'>" +
+                  park.table.name + "</span> <p>" + 
+                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
+      }));
+      
 
+   });
+    $("#parks").addClass("parks")
+    $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
      });
@@ -111,9 +126,21 @@ geocoderControl.addTo(map);
           "marker-symbol": "star"
         }
       });
-        //  return $("<h1>" + park.table.name + "</h1>");
+      
+      $parksDiv.empty();
+      $parksDiv.append(parks.map(function(park){
+        return $("<div class='row'> <div class='col s2 m3'>" +
+                  "<div class='card blue darken-2'>" +
+                  "<div class='card-content white-text'>" + 
+                  "<span class='card-title center'>" +
+                  park.table.name + "</span> <p>" + 
+                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
+      }));
+        
    });
-
+     $("#parks").addClass("parks")
+     $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
      });
