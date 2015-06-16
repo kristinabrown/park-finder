@@ -6,7 +6,7 @@ $(document).ready(function() {
   var geolocate = document.getElementById('geolocate');
   
   
-  var map = L.mapbox.map('map', 'kristinabrown.241388a6');
+  var map = L.mapbox.map('map', 'kristinabrown.mff7k9oa');
   // map.setView([39.750081, -104.999703], 13);
   
   var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
