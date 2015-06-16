@@ -72,7 +72,7 @@ geocoderControl.addTo(map);
 
    });
     $("#parks").addClass("parks")
-    $("#map").addClass("small-map");
+    $("#map").removeClass("big-map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
       
@@ -162,7 +162,7 @@ geocoderControl.addTo(map);
         
    });
      $("#parks").addClass("parks")
-     $("#map").addClass("small-map");
+     $("#map").removeClass("big-map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
       
