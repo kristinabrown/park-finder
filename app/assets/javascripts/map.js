@@ -53,19 +53,19 @@ geocoderControl.addTo(map);
           "title": park.table.name,
           "description": park.table.address,
           "marker-color": "#47ABED",
-          "marker-size": "large",
+          "marker-size": "medium",
           "marker-symbol": "star"
         }
       });
       
       $parksDiv.empty();
       $parksDiv.append(parks.map(function(park){
-        return $("<div class='row'> <div class='col s2 m3'>" +
+        return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
-                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
-                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.name + "</span><br><img src='" + park.table.image + "' alt='park image' height='70' width='80'> <p class='white-text'>" + park.table.address +
+                  "</p><div class='card-action'><img src='" + park.table.rating_url + "' alt='rating image' width='65'> <a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
       
@@ -75,7 +75,29 @@ geocoderControl.addTo(map);
     $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
-     });
+      
+    $(".park-row").mouseenter(function(){
+      var all = $(this).text();
+      var index = all.slice(0, 2).trim();
+      var park = myParks[index]
+      park.properties['marker-color'] = "#FFFF00";
+      park.properties['marker-size']  = 'large';
+      map.featureLayer.setGeoJSON(myParks);
+    });
+    
+    $(".park-row").mouseleave(function(){
+      var all = $(this).text();
+      var index = all.slice(0, 2).trim();
+      var park = myParks[index]
+      park.properties['marker-color'] = "#47ABED";
+      park.properties['marker-size']  = 'medium';
+      map.featureLayer.setGeoJSON(myParks);
+    });
+  
+    //   function changMarker(index) {
+    //   alert( "clicked" );
+    // }
+});
 
   myLayer.setGeoJSON({
       type: 'Feature',
@@ -122,19 +144,19 @@ geocoderControl.addTo(map);
           "title": park.table.name,
           "description": park.table.address,
           "marker-color": "#47ABED",
-          "marker-size": "large",
+          "marker-size": "medium",
           "marker-symbol": "star"
         }
       });
       
       $parksDiv.empty();
       $parksDiv.append(parks.map(function(park){
-        return $("<div class='row'> <div class='col s2 m3'>" +
+        return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
-                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
-                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.name + "</span><br><img src='" + park.table.image + "' alt='park image' height='70' width='80'> <p class='white-text'>" + park.table.address +
+                  "</p><div class='card-action'><img src='" + park.table.rating_url + "' alt='rating image' width='65'> <a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
         
@@ -143,6 +165,25 @@ geocoderControl.addTo(map);
      $("#map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
+      
+      $(".park-row").mouseenter(function(){
+        var all = $(this).text();
+        var index = all.slice(0, 2).trim();
+        var park = myParks[index]
+        park.properties['marker-color'] = "#FFFF00";
+        park.properties['marker-size']  = 'large';
+        map.featureLayer.setGeoJSON(myParks);
+      });
+      
+      $(".park-row").mouseleave(function(){
+        var all = $(this).text();
+        var index = all.slice(0, 2).trim();
+        var park = myParks[index]
+        park.properties['marker-color'] = "#47ABED";
+        park.properties['marker-size']  = 'medium';
+        map.featureLayer.setGeoJSON(myParks);
+      });
+    
      });
 
     myLayer.setGeoJSON({

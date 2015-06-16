@@ -16997,9 +16997,9 @@ geocoderControl.addTo(map);
       $parksDiv.append(parks.map(function(park){
         return $("<div class='row'> <div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
-                  "<div class='card-content white-text'>" + 
-                  "<span class='card-title center'>" +
-                  park.table.name + "</span> <p>" + 
+                  "<div class='card-content center'>" + 
+                  "<span class='card-title yellow-text text-lighten-3'>" +
+                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
                   "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
@@ -17066,9 +17066,9 @@ geocoderControl.addTo(map);
       $parksDiv.append(parks.map(function(park){
         return $("<div class='row'> <div class='col s2 m3'>" +
                   "<div class='card blue darken-2'>" +
-                  "<div class='card-content white-text'>" + 
-                  "<span class='card-title center'>" +
-                  park.table.name + "</span> <p>" + 
+                  "<div class='card-content center'>" + 
+                  "<span class='card-title yellow-text text-lighten-3'>" +
+                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
                   "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
