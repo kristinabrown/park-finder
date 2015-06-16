@@ -18,6 +18,12 @@ body{
   background-color: white;
 }
 
+#search {
+  width: 120%;
+  margin-right: 95px;
+  color: black;
+}
+
 .hidden{
   display: none;
 }
@@ -58,14 +64,15 @@ body{
   font-weight: bolder;
 }
 
+
 #geolocate {
   
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
-  margin-top: 55px;
-  font-size: 1.3em;
+  margin-top: 95px;
+  font-size: 1.2em;
   // border: 3px solid white;
-  margin-left: 45px;
+  margin-left: 9px;
   background-color: white;
   position: absolute;
 }
