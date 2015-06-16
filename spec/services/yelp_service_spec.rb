@@ -5,7 +5,7 @@ RSpec.describe YelpResults do
     it "returns search results" do
       VCR.use_cassette("search_results") do
         parks = YelpResults.parks(39.749729, -104.99998)
-        expect(parks.first.name).to eq("Skyline Park")
+        expect(parks.first.name).to eq("Denver")
       end
     end
   end
