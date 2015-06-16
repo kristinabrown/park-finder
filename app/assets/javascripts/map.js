@@ -9,6 +9,11 @@ $(document).ready(function() {
   var map = L.mapbox.map('map', 'kristinabrown.241388a6');
   map.setView([39.750081, -104.999703], 13);
   
+  var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
+geocoderControl.addTo(map);
+  
+
+  
   var myLayer = L.mapbox.featureLayer().addTo(map);
   
   if (!navigator.geolocation) {
@@ -78,6 +83,53 @@ $(document).ready(function() {
   // to be shared, display an error message.
   map.on('locationerror', function() {
       geolocate.innerHTML = 'Position could not be found';
+  });
+  
+  
+  geocoderControl.on('found', function(res) {
+    $("#spinner").toggleClass("hidden");
+    
+    var lon = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[0]
+    var lat = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[1]
+
+    $.post("/parks", { lat: lat, long: lon }).then(function(parks){
+      // var geojson = $.parseJSON(parks);
+    $("#spinner").toggleClass("hidden");
+      var myParks = [];
+      parks.map(function(park) {
+        myParks.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [park.table.longitude,park.table.latitude]
+        },
+        properties: {
+          "title": park.table.name,
+          "description": park.table.address,
+          "marker-color": "#47ABED",
+          "marker-size": "large",
+          "marker-symbol": "star"
+        }
+      });
+        //  return $("<h1>" + park.table.name + "</h1>");
+   });
+
+      var parkLayer = map.featureLayer.setGeoJSON(myParks);
+      map.fitBounds(parkLayer.getBounds());
+     });
+
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [lon, lat]
+        },
+        properties: {
+            'title': 'You Are Here!',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
+    });
   });
       
 });
