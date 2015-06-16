@@ -54,7 +54,8 @@ geocoderControl.addTo(map);
           "description": park.table.address,
           "marker-color": "#47ABED",
           "marker-size": "large",
-          "marker-symbol": "star"
+          "marker-symbol": "star",
+          "className": park.table.name
         }
       });
       
@@ -64,8 +65,8 @@ geocoderControl.addTo(map);
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
-                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
-                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.name + "</span><br><img src='" + park.table.image + "' alt='park image' height='70' width='80'> <p class='white-text'>" + park.table.address +
+                  "</p><div class='card-action'><img src='" + park.table.rating_url + "' alt='rating image' width='65'> <a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
       
@@ -123,7 +124,10 @@ geocoderControl.addTo(map);
           "description": park.table.address,
           "marker-color": "#47ABED",
           "marker-size": "large",
-          "marker-symbol": "star"
+          "marker-symbol": "star",
+          "icon": {
+              "className": park.table.id
+            }
         }
       });
       
@@ -133,8 +137,8 @@ geocoderControl.addTo(map);
                   "<div class='card blue darken-2'>" +
                   "<div class='card-content center'>" + 
                   "<span class='card-title yellow-text text-lighten-3'>" +
-                  park.table.name + "</span> <p class='white-text'>" + park.table.address +
-                  "</p><div class='card-action'><a class='cyan-text text-lighten-4 center' href='" +
+                  park.table.name + "</span><br><img src='" + park.table.image + "' alt='park image' height='70' width='80'> <p class='white-text'>" + park.table.address +
+                  "</p><div class='card-action'><img src='" + park.table.rating_url + "' alt='rating image' width='65'> <a class='cyan-text text-lighten-4 center' href='" +
                   park.table.yelp_url + "' target='_blank'>View on Yelp</a> </div> </div></div> </div>");
       }));
         
