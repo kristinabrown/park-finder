@@ -26,6 +26,7 @@ gem 'yelp', require: 'yelp'
 gem 'skylight'
 gem 'materialize-sass'
 gem 'responders'
+gem 'rack-cors', require: 'rack/cors'
 
 group :production do  
   gem 'rails_12factor'  

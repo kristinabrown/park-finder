@@ -102,6 +102,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -216,6 +217,7 @@ DEPENDENCIES
   materialize-sass
   pg
   pry
+  rack-cors
   rails (= 4.2.1)
   rails_12factor
   responders
