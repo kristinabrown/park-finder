@@ -1,20 +1,21 @@
 $(document).ready(function() {
-  
-  
+
   L.mapbox.accessToken = $('#map-data').data('token');
   
   var geolocate = document.getElementById('geolocate');
   
-  
   var map = L.mapbox.map('map', 'kristinabrown.mff7k9oa');
-  // map.setView([39.750081, -104.999703], 13);
   
   var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
-geocoderControl.addTo(map);
-  
+  geocoderControl.addTo(map);
 
-  
   var myLayer = L.mapbox.featureLayer().addTo(map);
+  
+  var $parksDiv = $("#parks");
+  
+  $("#geolocate").click(function(){
+    $("#spinner").toggleClass("hidden");  
+  })
   
   if (!navigator.geolocation) {
     geolocate.innerHTML = 'Geolocation is not available';
@@ -25,16 +26,6 @@ geocoderControl.addTo(map);
           map.locate();
       };
   }
-  
-  var $parksDiv = $("#parks");
-
-  // Once we've got a position, zoom and center the map
-  // on it, and add a single marker.
-  
-    $("#geolocate").click(function(){
-      $("#spinner").toggleClass("hidden");  
-    })
-    
 
   map.on('locationfound', function(e) {
     $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
@@ -94,10 +85,7 @@ geocoderControl.addTo(map);
       map.featureLayer.setGeoJSON(myParks);
     });
   
-    //   function changMarker(index) {
-    //   alert( "clicked" );
-    // }
-});
+  });
 
   myLayer.setGeoJSON({
       type: 'Feature',
@@ -115,13 +103,10 @@ geocoderControl.addTo(map);
   
   });
   
-
-  // If the user chooses not to allow their location
-  // to be shared, display an error message.
+  
   map.on('locationerror', function() {
       geolocate.innerHTML = 'Position could not be found';
   });
-  
   
   geocoderControl.on('found', function(res) {
     $("#spinner").toggleClass("hidden");
@@ -130,7 +115,7 @@ geocoderControl.addTo(map);
     var lat = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[1]
 
     $.post("/parks", { lat: lat, long: lon }).then(function(parks){
-      // var geojson = $.parseJSON(parks);
+
     $("#spinner").toggleClass("hidden");
       var myParks = [];
       parks.map(function(park) {
