@@ -12,7 +12,6 @@ class YelpResults
       park.address = result.location.display_address
       park.latitude = result.location.coordinate.latitude
       park.longitude = result.location.coordinate.longitude
-      park.text_snippet = result.snippet_text
       park.id = count += 1
       park
     end

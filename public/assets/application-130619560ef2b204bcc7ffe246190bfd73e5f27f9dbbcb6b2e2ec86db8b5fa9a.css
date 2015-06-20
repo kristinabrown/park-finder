@@ -19,25 +19,31 @@
 }
 
 /* line 29, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+.icecream {
+  background-color: #a23583;
+}
+
+/* line 33, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 .hidden {
   display: none;
 }
 
-/* line 37, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 41, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 .nav {
   background-color: white;
 }
 
-/* line 41, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 45, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #brand-logo {
   margin-left: 20px;
   background-color: #2768b5;
   padding: 8px;
   margin-bottom: 5px;
   font-size: 2em;
+  border-radius: 15px;
 }
 
-/* line 51, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 56, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 .small-map {
   position: absolute;
   margin-top: 60px;
@@ -47,7 +53,7 @@
   margin-left: 25%;
 }
 
-/* line 60, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 65, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 .big-map {
   position: absolute;
   margin-top: 60px;
@@ -56,7 +62,7 @@
   width: 100%;
 }
 
-/* line 73, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 78, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #main-header {
   font-family: 'Indie Flower', cursive;
   margin-top: 230px;
@@ -65,7 +71,7 @@
   font-weight: bolder;
 }
 
-/* line 83, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 88, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #geolocate {
   margin-top: 105px;
   font-size: 1.2em;
@@ -74,7 +80,7 @@
   position: absolute;
 }
 
-/* line 95, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
+/* line 100, /Users/kristinabrown/turing/personal-project/park-finder/app/assets/stylesheets/custom.css.scss */
 #main-button {
   margin-top: 220px;
   font-size: 2em;
