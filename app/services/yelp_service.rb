@@ -10,4 +10,10 @@ class YelpService
     Yelp.client.search_by_coordinates(coordinates, params).businesses
   end
   
+  def self.search_icecream(lat, lon)
+    coordinates = { latitude: lat, longitude: lon }
+    params = { term: "ice cream", radius: 2000, sort: 1}
+    Yelp.client.search_by_coordinates(coordinates, params).businesses
+  end
+  
 end

@@ -26,6 +26,10 @@ body{
   color: black;
 }
 
+.icecream{
+  background-color: rgb(162, 53, 131);
+}
+
 .hidden{
   display: none;
 }
@@ -46,6 +50,7 @@ body{
   padding: 8px;
   margin-bottom: 5px;
   font-size: 2em;
+  border-radius: 15px
 }
 
 .small-map {
