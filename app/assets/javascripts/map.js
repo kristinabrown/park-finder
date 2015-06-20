@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   L.mapbox.accessToken = $('#map-data').data('token');
   
   var geolocate = document.getElementById('geolocate');
@@ -37,20 +36,9 @@ $(document).ready(function() {
     
       myParks = [];
       parks.map(function(park) {
-        myParks.push({
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [park.table.longitude,park.table.latitude]
-        },
-        properties: {
-          "title": park.table.name,
-          "description": park.table.address,
-          "marker-color": "#00acc1",
-          "marker-size": "medium",
-          "marker-symbol": "park"
-        }
+        parkMarker(myParks, park)
       });
+    
 
       $parksDiv.empty();
       var parkCards = parks.map(function(park){ 
@@ -59,16 +47,14 @@ $(document).ready(function() {
       $parksDiv.append(parkCards);
       
 
-   });
     $("#parks").addClass("parks")
     $("#map").removeClass("big-map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
       
       $(".icecream").click(function() {
-          var all = $(this).parent().parent().parent().parent().parent().text();
-          var index = all.slice(0, 2).trim();
-          var park = myParks[index]
+          var park = iceCreamPark(myParks, this)
+          
           myLayer.setGeoJSON({
               type: 'Feature',
               geometry: {
@@ -86,20 +72,7 @@ $(document).ready(function() {
        
              myParks = [];
              icecreams.map(function(icecream) {
-               myParks.push({
-                 type: "Feature",
-                 geometry: {
-                   type: "Point",
-                   coordinates: [icecream.table.longitude,icecream.table.latitude]
-                 },
-                 properties: {
-                   "title": icecream.table.name,
-                   "description": icecream.table.address,
-                   "marker-color": "#FF6699",
-                   "marker-size": "medium",
-                   "marker-symbol": "ice-cream"
-                 }
-               })
+               icecreamMarker(myParks, icecream);
              });
              
              $parksDiv.empty();
@@ -166,39 +139,26 @@ $(document).ready(function() {
     $.post("/parks", { lat: lat, long: lon }).then(function(parks){
 
     $("#spinner").toggleClass("hidden");
-      myParks = [];
-      parks.map(function(park) {
-        myParks.push({
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [park.table.longitude,park.table.latitude]
-        },
-        properties: {
-          "title": park.table.name,
-          "description": park.table.address,
-          "marker-color": "#00acc1",
-          "marker-size": "medium",
-          "marker-symbol": "park"
-        }
-      });
-      
+    myParks = [];
+    parks.map(function(park) {
+      parkMarker(myParks, park)
+    });
+  
       $parksDiv.empty();
       var parkCards = parks.map(function(park){ 
         return parkIndex(park);
       });
       $parksDiv.append(parkCards);
         
-   });
      $("#parks").addClass("parks")
      $("#map").removeClass("big-map").addClass("small-map");
       var parkLayer = map.featureLayer.setGeoJSON(myParks);
       map.fitBounds(parkLayer.getBounds());
       
       $(".icecream").click(function() {
-          var all = $(this).parent().parent().parent().parent().parent().text();
-          var index = all.slice(0, 2).trim();
-          var park = myParks[index]
+        
+          var park = iceCreamPark(myParks, this)
+
           myLayer.setGeoJSON({
               type: 'Feature',
               geometry: {
@@ -216,20 +176,7 @@ $(document).ready(function() {
        
              myParks = [];
              icecreams.map(function(icecream) {
-               myParks.push({
-                 type: "Feature",
-                 geometry: {
-                   type: "Point",
-                   coordinates: [icecream.table.longitude,icecream.table.latitude]
-                 },
-                 properties: {
-                   "title": icecream.table.name,
-                   "description": icecream.table.address,
-                   "marker-color": "#FF6699",
-                   "marker-size": "medium",
-                   "marker-symbol": "ice-cream"
-                 }
-               })
+               icecreamMarker(myParks, icecream);
              });
              
              $parksDiv.empty();
@@ -282,6 +229,9 @@ $(document).ready(function() {
   });
 });
 
+
+//helper methods
+
 function parkIndex(park){
     return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
               "<div class='card cyan lighten-2'>" +
@@ -309,4 +259,44 @@ function parksHover(thing, myParks, color, size){
   var park = myParks[index]
   park.properties['marker-color'] = color;
   park.properties['marker-size']  = size;
+};
+
+function icecreamMarker(myParks, icecream){
+  myParks.push({
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [icecream.table.longitude,icecream.table.latitude]
+    },
+    properties: {
+      "title": icecream.table.name,
+      "description": icecream.table.address,
+      "marker-color": "#FF6699",
+      "marker-size": "medium",
+      "marker-symbol": "ice-cream"
+    }
+  })
+};
+
+function parkMarker(myParks, park){
+  myParks.push({
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [park.table.longitude,park.table.latitude]
+    },
+    properties: {
+      "title": park.table.name,
+      "description": park.table.address,
+      "marker-color": "#00acc1",
+      "marker-size": "medium",
+      "marker-symbol": "park"
+    }
+  });
+};
+
+function iceCreamPark(myParks, thing){
+  var all = $(thing).parent().parent().parent().parent().parent().text();
+  var index = all.slice(0, 2).trim();
+  return myParks[index]
 };
