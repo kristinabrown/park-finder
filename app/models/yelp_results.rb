@@ -18,6 +18,25 @@ class YelpResults
     end
   end
   
+  def self.icecream(lat, lon)
+    results = YelpService.search_icecream(lat, lon)
+    count = -1
+    results.map do |result| 
+      ic = IceCream.new
+      ic.name = result.name
+      ic.rating_url = result.rating_img_url
+      ic.yelp_url = result.url
+      ic.address = result.location.display_address
+      ic.latitude = result.location.coordinate.latitude
+      ic.longitude = result.location.coordinate.longitude
+      ic.id = count += 1
+      ic
+    end
+  end
+  
+end
+
+class IceCream < OpenStruct
 end
 
 class Park < OpenStruct

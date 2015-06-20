@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   
   resources :maps
   
-  post '/parks', to: 'maps#park_finder' 
+  post '/parks', to: 'maps#park_finder'
+  post '/icecream', to: 'maps#icecream_finder'  
 end

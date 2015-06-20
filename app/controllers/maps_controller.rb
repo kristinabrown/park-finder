@@ -14,4 +14,12 @@ class MapsController < ApplicationController
     respond_with @parks, status: 201, location: maps_path
   end
   
+  def icecream_finder
+    lat = params["lat"]
+    long = params["long"]
+    @icecream = YelpResults.icecream(lat, long)
+    
+    respond_with @icecream, status: 201, location: maps_path
+  end
+  
 end
