@@ -46,15 +46,24 @@ body{
   background-color: white;
 }
 
+#tree-logo {
+  margin-left: 10px;
+  max-width: 56px;
+  margin-top: 5px;
+}
+
 #brand-logo {
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
-  margin-left: 20px;
-  background-color: rgb(39, 104, 181);
-  padding: 8px;
-  margin-bottom: 5px;
+  margin-left: 10px;
+
   font-size: 2em;
-  border-radius: 15px
+
+  color: rgb(49, 124, 157);
+}
+
+a:hover #brand-logo {
+  background-color: rgb(133, 122, 128);
 }
 
 .small-map {
@@ -73,11 +82,6 @@ body{
   bottom:0; 
   width:100%; 
 }
-
-#map { 
-
-}
-
 
 #main-header {
   // font-family: 'Shadows Into Light', cursive;
