@@ -19,7 +19,7 @@ RSpec.describe YelpResults do
         expect(parks.first.latitude).to eq(39.7505302)
         expect(parks.first.longitude).to eq(-104.9969864)
         expect(parks.first.id).to eq(0)
-      end«»
+      end
     end
   end
   
