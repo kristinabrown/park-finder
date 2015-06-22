@@ -9,10 +9,11 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubePlayerAPIReady() {
  player = new YT.Player('player', {
-   playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
+   playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque', 'end': 50, 'loop':1},
    videoId: '2Tx3wm8mN6g',
    events: {
-     'onReady': onPlayerReady}
+     'onReady': onPlayerReady,
+     'onStateChange': onPlayerStateChange}
  });
 }
 
@@ -20,6 +21,14 @@ function onYouTubePlayerAPIReady() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
  event.target.mute();
+}
+
+function onPlayerStateChange(e){
+    var id = '2Tx3wm8mN6g';
+
+    if(e.data === YT.PlayerState.ENDED){
+        player.loadVideoById(id);
+    }
 }
 
  //tWxgxIRCCqQ walking park
