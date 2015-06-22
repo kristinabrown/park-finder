@@ -9,7 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubePlayerAPIReady() {
  player = new YT.Player('player', {
-   playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque', 'end': 50, 'loop':1},
+   playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque', 'end': 49, 'loop':1},
    videoId: '2Tx3wm8mN6g',
    events: {
      'onReady': onPlayerReady,
@@ -27,7 +27,9 @@ function onPlayerStateChange(e){
     var id = '2Tx3wm8mN6g';
 
     if(e.data === YT.PlayerState.ENDED){
-        player.loadVideoById(id);
+        player.loadVideoById({'videoId': '2Tx3wm8mN6g',
+                              'startSeconds': 63,
+                              'endSeconds': 98});
     }
 }
 

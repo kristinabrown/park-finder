@@ -233,7 +233,7 @@ $(document).ready(function() {
 //helper methods
 
 function parkIndex(park){
-    return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='col s2 m3'>" +
+    return $("<div class='row park-row'><div class='hidden'>" + park.table.id + " </div><div class='park-col'>" +
               "<div class='card cyan lighten-2'>" +
               "<div class='card-content center'>" + 
               "<span class='card-title blue-text text-darken-4'>" +
@@ -244,7 +244,7 @@ function parkIndex(park){
 };
 
 function icecreamIndex(icecream){
-  return $("<div class='row park-row'><div class='hidden'>" + icecream.table.id + " </div><div class='col s2 m3'>" +
+  return $("<div class='row park-row'><div class='hidden'>" + icecream.table.id + " </div><div class='park-col'>" +
             "<div class='card pink lighten-3'>" +
             "<div class='card-content center'>" + 
             "<span class='card-title pink-text text-darken-4'>" +
