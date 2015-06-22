@@ -46,6 +46,11 @@ body{
   background-color: white;
 }
 
+.park-col {
+  width: 280px;
+  margin-left: 20px;
+}
+
 #tree-logo {
   margin-left: 10px;
   max-width: 56px;
@@ -112,7 +117,31 @@ a:hover #brand-logo {
   margin-top: 150px;
   font-size: 2em;
   // border: 3px solid white;
-  margin-left: 45px;
+  // margin-left: 45px;
+  margin-left: 37%;
+  
   background-color: white;
   position: absolute;
+}
+
+
+@media screen and (max-width: 600px) {
+  #map {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    // display: none;
+  }
+  
+  #main-button {
+    font-size: 1em;
+  }
+  
+  #geolocate {
+    background-color: rgb(55, 130, 172);
+    visibility: visible;
+    z-index: -1;
+  }
 }
