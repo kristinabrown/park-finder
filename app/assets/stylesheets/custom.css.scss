@@ -67,9 +67,6 @@ body{
   color: rgb(49, 124, 157);
 }
 
-a:hover #brand-logo {
-  background-color: rgb(133, 122, 128);
-}
 
 .small-map {
   position:absolute; 
@@ -122,6 +119,9 @@ a:hover #brand-logo {
   
   background-color: white;
   position: absolute;
+  a {
+    color: rgb(55, 130, 172);
+  }
 }
 
 
