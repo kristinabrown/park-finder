@@ -6,7 +6,11 @@ class YelpResults
     results.map do |result|
       park = Park.new
       park.name = result.name
-      park.image = result.image_url
+      if result.has_key?('image_url')
+        park.image = result.image_url
+      else
+        park.image = 'http://s3-media2.fl.yelpcdn.com/bphoto/xuE9eYT5wNORSM6XAb6yJw/ms.jpg'
+      end
       park.rating_url = result.rating_img_url
       park.yelp_url = result.url
       park.address = result.location.display_address

@@ -135,9 +135,8 @@ $(document).ready(function() {
     
     var lon = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[0]
     var lat = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[1]
-
     $.post("/parks", { lat: lat, long: lon }).then(function(parks){
-
+  
     $("#spinner").toggleClass("hidden");
     myParks = [];
     parks.map(function(park) {
