@@ -38,7 +38,7 @@ $(document).ready(function() {
   }
 
   map.on('locationfound', function(e) {
-    $.post("/parks", { lat: e.latitude, long: e.longitude }).then(function(parks){
+     parksAjax(e.latitude, e.longitude).then(function(parks){
     
     $("#spinner").toggleClass("hidden");
     
@@ -76,7 +76,7 @@ $(document).ready(function() {
               }
            }); 
 
-           $.post("/icecream", { lat: park.geometry.coordinates[1], long: park.geometry.coordinates[0] }).then(function(icecreams){
+           icecreamAjax(park.geometry.coordinates[1], park.geometry.coordinates[0]).then(function(icecreams){
        
              myParks = [];
              icecreams.map(function(icecream) {
@@ -145,7 +145,7 @@ $(document).ready(function() {
     
     var lon = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[0]
     var lat = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[1]
-    $.post("/parks", { lat: lat, long: lon }).then(function(parks){
+    parksAjax(lat, lon).then(function(parks){
   
     $("#spinner").toggleClass("hidden");
     myParks = [];
@@ -181,7 +181,7 @@ $(document).ready(function() {
               }
            }); 
 
-           $.post("/icecream", { lat: park.geometry.coordinates[1], long: park.geometry.coordinates[0] }).then(function(icecreams){
+           icecreamAjax(park.geometry.coordinates[1], park.geometry.coordinates[0]).then(function(icecreams){
        
              myParks = [];
              icecreams.map(function(icecream) {
@@ -286,6 +286,7 @@ function icecreamMarker(myParks, icecream){
       "marker-symbol": "ice-cream"
     }
   })
+  return true
 };
 
 function parkMarker(myParks, park){
@@ -302,11 +303,20 @@ function parkMarker(myParks, park){
       "marker-size": "medium",
       "marker-symbol": "park"
     }
-  });
+  })
+  return true
 };
 
 function iceCreamPark(myParks, thing){
   var all = $(thing).parent().parent().parent().parent().parent().text();
   var index = all.slice(0, 2).trim();
   return myParks[index]
+};
+
+function parksAjax(lat, long){
+  return $.post("/parks", { lat: lat, long: long })
+};
+
+function icecreamAjax(lat, long){
+  return $.post("/icecream", { lat: lat, long: long })
 };
