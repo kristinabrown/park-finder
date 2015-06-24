@@ -45,7 +45,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'teaspoon-jasmine'
+  gem 'teaspoon-mocha'
+  gem 'konacha'
 end
 
 group :test do

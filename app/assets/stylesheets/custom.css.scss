@@ -3,6 +3,28 @@ body{
 
 }
 
+#message {
+  position: absolute;
+  display: none;
+  margin-top: 49px;
+  
+}
+
+#spy-glass{
+  padding: 3px;
+  background-color: rgb(49, 124, 157);
+  color: white;
+  border-radius: 15px;
+}
+
+#near {
+  padding: 3px;
+  background-color: rgb(49, 124, 157);
+  color: white;
+  border-radius: 15px;
+  
+}
+
 #spinner {
   // position: absolute;
   // margin-bottom: 200px;
@@ -99,7 +121,7 @@ body{
   
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
-  margin-top: 105px;
+  margin-top: 110px;
   font-size: 1.2em;
   // border: 3px solid white;
   margin-left: 9px;
