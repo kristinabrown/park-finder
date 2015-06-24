@@ -6,7 +6,7 @@ body{
 #message {
   position: absolute;
   display: none;
-  margin-top: 49px;
+  margin-top: 52px;
   
 }
 
@@ -15,6 +15,8 @@ body{
   background-color: rgb(49, 124, 157);
   color: white;
   border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #near {
@@ -22,7 +24,8 @@ body{
   background-color: rgb(49, 124, 157);
   color: white;
   border-radius: 15px;
-  
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #spinner {
@@ -66,6 +69,7 @@ body{
 
 .nav {
   background-color: white;
+  // margin-bottom: 15px;
 }
 
 .park-col {
@@ -92,7 +96,7 @@ body{
 
 .small-map {
   position:absolute; 
-  margin-top: 60px;
+  margin-top: 66px;
   top:0;
   bottom:0; 
   width: 75%;
@@ -121,7 +125,7 @@ body{
   
   // font-family: 'Indie Flower', cursive;
   // font-family: 'Shadows Into Light', cursive;
-  margin-top: 110px;
+  margin-top: 115px;
   font-size: 1.2em;
   // border: 3px solid white;
   margin-left: 9px;

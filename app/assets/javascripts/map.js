@@ -17,14 +17,14 @@ $(document).ready(function() {
   
   $("#geolocate").click(function(){
     $("#spinner").toggleClass("hidden");
-    $("#message").fadeOut(100);  
+    $("#message").hide();  
   })
   
   $(window).load(function(){
    function show_popup(){
       $("#message").fadeIn(500);
    };
-   window.setTimeout( show_popup, 5000 ); // 5 seconds
+   window.setTimeout( show_popup, 2000 ); // 5 seconds
 })
   
   if (!navigator.geolocation) {
@@ -105,6 +105,7 @@ $(document).ready(function() {
            });
              
       })
+    $("#message").hide();  
       
     $(".park-row").mouseenter(function(){
       parksHover(this, myParks, "#FFFF00", "large");
@@ -139,7 +140,7 @@ $(document).ready(function() {
   });
   
   geocoderControl.on('found', function(res) {
-    $("#message").fadeOut(100);  
+    $("#message").hide();  
     $("#spinner").toggleClass("hidden");
     
     var lon = JSON.parse(JSON.stringify(res.results.features[0])).geometry.coordinates[0]
@@ -209,6 +210,7 @@ $(document).ready(function() {
            });
              
       })
+      $("#message").hide();   
       
       $(".park-row").mouseenter(function(){
         parksHover(this, myParks, "#FFFF00", "large");
