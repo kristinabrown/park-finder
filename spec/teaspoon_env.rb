@@ -34,7 +34,8 @@ Teaspoon.configure do |config|
     # Note: If no version is specified, the latest is assumed.
     #
     # Versions: 1.3.1, 2.0.3, 2.1.3, 2.2.0
-    suite.use_framework :jasmine, "2.2.0"
+    suite.use_framework :mocha
+    suite.javascripts += ["support/expect", "support/sinon"]
 
     # Specify a file matcher as a regular expression and all matching files will be loaded when the suite is run. These
     # files need to be within an asset path. You can add asset paths using the `config.asset_paths`.
