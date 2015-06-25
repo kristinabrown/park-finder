@@ -43,5 +43,4 @@ class IceCream < OpenStruct
 end
 
 class Park < OpenStruct
-  
 end
